@@ -1,0 +1,94 @@
+{% schema %}
+{
+  "name": "Rodapé",
+  "settings": [
+    {
+      "type": "page",
+      "id": "page_sobre",
+      "label": "Página 'Sobre Nós'"
+    },
+    {
+      "type": "page",
+      "id": "page_contato",
+      "label": "Página 'Contato'"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rodapé padrão"
+    }
+  ]
+}
+{% endschema %}
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-container">
+    <div class="footer-branding">
+      <h2 class="footer-logo">Pense Gato</h2>
+      <p class="footer-description">Produtos fofos e funcionais para quem ama gatos.</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Links úteis</h3>
+      <ul>
+        <li><a href="{{ pages[section.settings.page_contato].url | default: pages.contato.url | default: '/pages/contato' }}">Contato</a></li>
+        <li><a href="{{ shop.privacy_policy.url }}">Política de Privacidade</a></li>
+        <li><a href="{{ shop.refund_policy.url }}">Política de Reembolso</a></li>
+        <li><a href="{{ pages[section.settings.page_sobre].url | default: pages.sobre.url | default: '/pages/sobre' }}">Sobre Nós</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h3>Siga a gente</h3>
+      <ul class="social-icons">
+        <li><a href="https://instagram.com/pensegato" target="_blank">Instagram</a></li>
+        <li><a href="mailto:mafalda@pensegato.com.br">E-mail</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {{ 'now' | date: "%Y" }} Pense Gato. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--cor-principal, #fefefe);
+    color: var(--cor-secundaria, #333);
+    padding: 3rem 1rem;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links ul,
+  .footer-social ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-links a,
+  .footer-social a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.6;
+  }
+</style>

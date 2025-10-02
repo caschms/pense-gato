@@ -1,0 +1,35 @@
+<section class="cart-page">
+  <div class="container">
+    <h1>Seu carrinho</h1>
+    {% if cart.item_count > 0 %}
+      <form action="/cart" method="post">
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Qtd</th>
+              <th>Preço</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in cart.items %}
+              <tr>
+                <td>{{ item.product.title }}</td>
+                <td><input type="number" name="updates[]" value="{{ item.quantity }}"></td>
+                <td>{{ item.price | money }}</td>
+                <td>{{ item.line_price | money }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <p>Total: {{ cart.total_price | money }}</p>
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+        <a href="/checkout" class="btn btn-checkout">Finalizar compra</a>
+      </form>
+    {% else %}
+      <p>Seu carrinho está vazio.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary">Ver produtos</a>
+    {% endif %}
+  </div>
+</section>

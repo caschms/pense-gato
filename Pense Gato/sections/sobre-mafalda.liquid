@@ -1,0 +1,199 @@
+<section class="about-section" style="--primary-color: {{ section.settings.primary_color | default: '#a0522d' }};">
+  <div class="about-container page-width">
+    <div class="about-content">
+      {% if section.settings.imagem %}
+        <div class="about-image-wrapper">
+          <img 
+            src="{{ section.settings.imagem | image_url: width: 600 }}" 
+            srcset="
+              {{ section.settings.imagem | image_url: width: 300 }} 300w,
+              {{ section.settings.imagem | image_url: width: 600 }} 600w,
+              {{ section.settings.imagem | image_url: width: 900 }} 900w
+            "
+            sizes="(max-width: 480px) 300px, 600px"
+            alt="{{ section.settings.imagem.alt | escape | default: 'Mafalda' }}"
+            class="about-image"
+            width="600"
+            height="{{ 600 | divided_by: section.settings.imagem.aspect_ratio | round }}"
+          >
+        </div>
+      {% endif %}
+
+      <div class="about-text">
+        {% if section.settings.titulo != blank %}
+          <h2 class="about-title">{{ section.settings.titulo }}</h2>
+        {% endif %}
+        
+        {% if section.settings.descricao != blank %}
+          <div class="about-description">
+            {{ section.settings.descricao | newline_to_br }}
+          </div>
+        {% endif %}
+        
+        {% if section.settings.cta_text != blank %}
+          <a href="{{ section.settings.cta_link }}" class="about-button button">
+            {{ section.settings.cta_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: 3rem 0;
+    background-color: {{ section.settings.bg_color | default: '#ffffff' }};
+  }
+  
+  .about-container {
+    max-width: 1200px;
+  }
+  
+  .about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  }
+  
+  .about-image-wrapper {
+    flex: 1 1 300px;
+    max-width: 500px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .about-image:hover {
+    transform: scale(1.02);
+  }
+  
+  .about-text {
+    flex: 1 1 400px;
+    padding: 0 1rem;
+  }
+  
+  .about-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  
+  .about-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: {{ section.settings.text_color | default: '#444444' }};
+    margin-bottom: 2rem;
+  }
+  
+  .about-description br {
+    margin-bottom: 1rem;
+    display: block;
+    content: "";
+  }
+  
+  .about-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+  }
+  
+  .about-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .about-content {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .about-image-wrapper {
+      max-width: 100%;
+    }
+    
+    .about-text {
+      text-align: center;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Sobre a Mafalda",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "imagem",
+      "label": "Imagem da Mafalda"
+    },
+    {
+      "type": "text",
+      "id": "titulo",
+      "label": "Título",
+      "default": "Conheça a Mafalda"
+    },
+    {
+      "type": "textarea",
+      "id": "descricao",
+      "label": "Descrição",
+      "default": "Aqui você pode contar a história da Mafalda, sua personalidade e importância para a marca."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto do Botão",
+      "default": "Saiba mais"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Link do Botão"
+    },
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Cor Principal (título/botão)",
+      "default": "#a0522d"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Cor do Texto",
+      "default": "#444444"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Cor de Fundo",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sobre a Mafalda",
+      "settings": {
+        "titulo": "Conheça a Mafalda",
+        "descricao": "A gata mais charmosa da internet, símbolo da nossa marca e responsável por trazer alegria para nossos clientes.",
+        "cta_text": "Conheça sua história"
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,16 @@
+<section class="product-page">
+  <div class="container">
+    <h1>{{ product.title }}</h1>
+    <div class="product-details">
+      <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title }}">
+      <div class="product-info">
+        <p>{{ product.description }}</p>
+        <p>{{ product.price | money }}</p>
+        <form method="post" action="/cart/add">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          <button type="submit" class="btn btn-primary">Adicionar ao carrinho</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
