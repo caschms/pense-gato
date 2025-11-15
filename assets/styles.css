@@ -1,0 +1,219 @@
+/* ===== Reset simples ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #222;
+  background: #fff;
+  line-height: 1.6;
+}
+
+/* ===== Cores principais ===== */
+:root {
+  --primary: #ff7ac4; /* Rosa gatinho */
+  --dark: #1a1a1a;
+  --light: #f9f9f9;
+  --radius: 14px;
+}
+
+/* ===== Layout básico ===== */
+header {
+  width: 100%;
+  padding: 20px;
+  background: var(--light);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid #eaeaea;
+}
+
+header .container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+nav a {
+  margin-left: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--dark);
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+/* ===== Hero ===== */
+#hero {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffd9f1, #fff);
+}
+
+#hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+/* ===== Produtos ===== */
+#produtos {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+#produtos h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.grid-produtos {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card .info {
+  padding: 16px;
+}
+
+.card .info h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card .info p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.card .btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* ===== Sobre ===== */
+#sobre {
+  padding: 60px 20px;
+  background: var(--light);
+}
+
+#sobre .container {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+#sobre h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9rem;
+  color: #666;
+  background: #fafafa;
+}
+
+/* ===== Filtros de categoria ===== */
+.filtros-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filtro-btn {
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.filtro-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filtro-btn.ativo {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ===== Badge da loja ===== */
+.badge-loja {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #ffe8f6;
+  color: #b83280;
+  margin-bottom: 8px;
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pense Gato – Curadoria de produtos para gatos</title>
+    <meta
+      name="description"
+      content="Pense Gato é uma curadoria de brinquedos, arranhadores, fontes de água e acessórios para gatos, com links de afiliados na Amazon, Shopee e Mercado Livre."
+    />
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="container">
+        <h1>Pense Gato</h1>
+
+        <nav>
+          <a href="#produtos">Produtos</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#afiliados">Aviso</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== HERO ===== -->
+      <section id="hero">
+        <h2>Produtos que deixam o seu gato mais feliz (e a casa mais tranquila)</h2>
+        <p>
+          Uma curadoria de brinquedos, fontes, arranhadores e acessórios felinos
+          escolhidos a dedo, com links diretos para Amazon, Shopee e Mercado Livre.
+        </p>
+
+        <a href="#produtos" class="btn">Ver produtos recomendados</a>
+      </section>
+
+      <!-- ===== PRODUTOS ===== -->
+      <section id="produtos">
+  <h3>Curadoria Pense Gato</h3>
+  <p style="margin-bottom: 20px; color: #555;">
+    Comece pelos essenciais para bem-estar felino: enriquecimento ambiental,
+    hidratação e descanso.
+  </p>
+
+  <!-- Filtros de categoria (preenchidos via JS) -->
+  <div id="filtros-categorias" class="filtros-container"></div>
+
+  <!-- AQUI o JS vai renderizar os cards -->
+  <div id="lista-produtos" class="grid-produtos"></div>
+
+  <noscript>
+    <p style="margin-top: 10px; font-size: 0.9rem; color: #777;">
+      Ative o JavaScript para ver a lista de produtos recomendados.
+    </p>
+  </noscript>
+</section>
+
+      <!-- ===== SOBRE ===== -->
+      <section id="sobre">
+        <div class="container">
+          <h3>Sobre a Pense Gato</h3>
+          <p>
+            A Pense Gato nasceu da ideia de simplificar a vida de quem ama gatos, mas
+            não tem tempo (nem paciência) para ficar comparando milhares de produtos.
+          </p>
+          <p style="margin-top: 10px;">
+            Aqui você encontra uma curadoria enxuta de itens realmente úteis para o
+            dia a dia felino: fontes de água, arranhadores, brinquedos e acessórios
+            que fazem diferença no bem-estar do seu gato – e na harmonia da casa.
+          </p>
+          <p style="margin-top: 10px;">
+            Todos os links levam para lojas confiáveis, em marketplaces como Amazon,
+            Shopee e Mercado Livre.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== AVISO DE AFILIADOS ===== -->
+      <section id="afiliados" style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+        <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 10px;">
+          Transparência sobre links de afiliado
+        </h3>
+        <p style="font-size: 0.95rem; color: #555;">
+          Alguns dos links desta página são links de afiliados. Isso significa que a
+          Pense Gato pode receber uma pequena comissão se você comprar através deles,
+          sem qualquer custo extra para você.
+        </p>
+        <p style="font-size: 0.95rem; color: #555; margin-top: 8px;">
+          Essa comissão ajuda a manter o projeto no ar e continuar testando e
+          selecionando produtos legais para você e seu gato.
+        </p>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <p>Pense Gato © <span id="ano-atual"></span> – Curadoria de produtos para gatos.</p>
+    </footer>
+
+    <!-- JS principal -->
+    <script src="./assets/main.js"></script>
+    <script>
+      // Atualiza ano no rodapé
+      document.getElementById("ano-atual").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
